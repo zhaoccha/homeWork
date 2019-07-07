@@ -56,7 +56,50 @@ var b = (tempArr+'').split(',').map(item=>{
     return Number(item);
 });
 console.log(b)
+// 教学版
+let arr =[1,2,['3',4,[5,6]]];
+function flatten(arr){
+   let newarr= arr.reduce((prev,next) =>{
+   
+     return prev.concat(Array.isArray(next)?flatten(next):next)
+    },[])
+    return newArr;
+}
+let res = flatter(arr);
+console.log(res)
 
+function flatten1(arr){
+    while(Array.some(item => {
+    Array.isArray(item)
+})){
+    arr = [].concat(...arr)
+}
+return arr;
+}
+   let narr =[];
+function flatten2(arr){
+ 
+    arr.forEach(item =>{
+        if(Array.isArray(item)){
+            flatten2(item)
+        }else{
+            narr.push(item)
+        }
+    })
+    return narr;
+}
+// res undefined
+// 二维转一维
+
+let arr1 = ['name','age'];
+let arr2 = ['bgs',10]
+let obj =arr1.reduce((prev,next,index) =>{
+   prev[next] = arr2[index]
+   return prev;
+},{})
+let arr11 = [1,[2]];
+console.log([].concat(...arr11))//es6
+console.log([].concat.apply([],arr11))//es5
         </script>
 </body>
 </html>
